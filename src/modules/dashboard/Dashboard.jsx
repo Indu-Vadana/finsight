@@ -1,3 +1,4 @@
+'use client';
 import React, { useMemo } from 'react';
 import { useIncome } from '../../contexts/IncomeContext';
 import { useExpense } from '../../contexts/ExpenseContext';
