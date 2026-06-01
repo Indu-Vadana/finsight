@@ -63,7 +63,7 @@ export function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <aside className="hidden md:flex flex-col w-64 h-screen fixed left-0 top-0 bg-white/95 dark:bg-dark-800/70 backdrop-blur-xl border-r border-slate-200 dark:border-white/[0.06] z-40">
+    <aside className="hidden md:flex flex-col w-64 h-screen fixed left-0 top-0 bg-white/[0.55] dark:bg-dark-800/70 backdrop-blur-2xl border-r border-white/[0.75] dark:border-white/[0.06] z-40">
 
       {/* Logo + Toggle */}
       <div className="p-6 pb-4 flex items-center justify-between">
