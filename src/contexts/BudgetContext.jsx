@@ -10,15 +10,6 @@ export function BudgetProvider({ children }) {
   const [loading, setLoading] = useState(true);
   const { currentUser } = useAuth();
 
-  useEffect(() => {
-    if (currentUser) {
-      fetchBudgets();
-    } else {
-      setBudgets([]);
-      setLoading(false);
-    }
-  }, [currentUser]);
-
   const fetchBudgets = async () => {
     setLoading(true);
     try {
@@ -30,6 +21,15 @@ export function BudgetProvider({ children }) {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    if (currentUser) {
+      fetchBudgets();
+    } else {
+      setBudgets([]);
+      setLoading(false);
+    }
+  }, [currentUser]);
 
   const addBudget = async (data) => {
     await budgetService.add(currentUser.uid, data);
