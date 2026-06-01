@@ -1,3 +1,4 @@
+'use client'
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { authService } from '../services/authService';
 
@@ -12,12 +13,12 @@ export function AuthProvider({ children }) {
       setCurrentUser(user);
       setLoading(false);
     });
-
     return unsubscribe;
   }, []);
 
   const value = {
     currentUser,
+    loading,
     register: authService.register,
     login: authService.login,
     logout: authService.logout,

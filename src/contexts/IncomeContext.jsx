@@ -1,3 +1,4 @@
+'use client'
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { incomeService } from '../services/incomeService';
 import { useAuth } from './AuthContext';
