@@ -64,7 +64,7 @@ export function Planner() {
                 <Calculator className="w-5 h-5 text-primary-400" />
               </div>
               <div>
-                <h2 className="font-display text-lg font-semibold text-white">Plan Your Savings</h2>
+                <h2 className="font-display text-lg font-semibold text-slate-900 dark:text-white">Plan Your Savings</h2>
                 <p className="text-xs text-slate-600">Enter your goal details below</p>
               </div>
             </div>
@@ -129,7 +129,7 @@ export function Planner() {
                 <PiggyBank className="w-5 h-5 text-accent-400" />
               </div>
               <div>
-                <h2 className="font-display text-lg font-semibold text-white">Your Savings Plan</h2>
+                <h2 className="font-display text-lg font-semibold text-slate-900 dark:text-white">Your Savings Plan</h2>
                 <p className="text-xs text-slate-600">Personalized breakdown</p>
               </div>
             </div>
@@ -145,7 +145,7 @@ export function Planner() {
                 >
                   <div className="relative">
                     <div className="absolute inset-0 rounded-2xl bg-primary-500/10 blur-xl scale-150" />
-                    <div className="relative p-4 rounded-2xl bg-dark-700/60 border border-white/[0.06]">
+                    <div className="relative p-4 rounded-2xl bg-slate-100/60 dark:bg-dark-700/60 border border-slate-200 dark:border-white/[0.06]">
                       <Calculator className="w-8 h-8 text-slate-600" />
                     </div>
                   </div>
@@ -181,7 +181,7 @@ export function Planner() {
                           <stat.icon className={`w-4 h-4 ${stat.color}`} />
                         </div>
                         <p className="text-xs text-slate-600 font-medium mb-1">{stat.label}</p>
-                        <p className="font-display text-xl font-bold text-white">{stat.value}</p>
+                        <p className="font-display text-xl font-bold text-slate-900 dark:text-white">{stat.value}</p>
                       </div>
                     ))}
                   </div>
@@ -193,7 +193,7 @@ export function Planner() {
                       key={calculations.monthly}
                       initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className="font-display text-3xl font-bold text-white mb-1"
+                      className="font-display text-3xl font-bold text-slate-900 dark:text-white mb-1"
                     >
                       {formatINR(calculations.monthly)}
                     </motion.p>
@@ -216,7 +216,7 @@ export function Planner() {
                       </div>
                       <div className="text-right">
                         <p className="text-xs text-slate-600 font-medium mb-1">Total target</p>
-                        <p className="font-display text-xl font-bold text-slate-300">{formatINR(Number(targetAmount))}</p>
+                        <p className="font-display text-xl font-bold text-slate-600 dark:text-slate-300">{formatINR(Number(targetAmount))}</p>
                       </div>
                     </div>
                   </div>

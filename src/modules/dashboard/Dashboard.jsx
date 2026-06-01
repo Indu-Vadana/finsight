@@ -106,7 +106,7 @@ export function Dashboard() {
             </div>
             <div>
               <p className="text-xs font-bold text-primary-400 uppercase tracking-wider mb-1">Smart Insight</p>
-              <p className="text-slate-300 text-sm leading-relaxed">{insights.suggestion}</p>
+              <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">{insights.suggestion}</p>
             </div>
           </div>
         </div>
@@ -147,7 +147,7 @@ export function Dashboard() {
             icon={Wallet}
             iconColor="text-primary-400"
             iconBg="bg-primary-500/10"
-            valueColor={insights.netSavings >= 0 ? 'text-white' : 'text-rose-400'}
+            valueColor={insights.netSavings >= 0 ? 'text-slate-900 dark:text-white' : 'text-rose-400'}
           />
         </motion.div>
       </motion.div>
@@ -164,7 +164,7 @@ export function Dashboard() {
           <Card className="h-full">
             <div className="flex items-center justify-between mb-6">
               <div>
-                <h3 className="font-display text-base font-semibold text-white">Expense Breakdown</h3>
+                <h3 className="font-display text-base font-semibold text-slate-900 dark:text-white">Expense Breakdown</h3>
                 <p className="text-xs text-slate-600 mt-0.5">Current month by category</p>
               </div>
               <Badge color="slate">This Month</Badge>
@@ -174,7 +174,7 @@ export function Dashboard() {
                 <Doughnut data={chartData} options={chartOptions} />
                 <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
                   <span className="text-xs text-slate-600 font-medium">Top</span>
-                  <span className="text-sm font-bold text-white">{insights.highestCategory || '—'}</span>
+                  <span className="text-sm font-bold text-slate-900 dark:text-white">{insights.highestCategory || '—'}</span>
                 </div>
               </div>
             ) : (
@@ -192,7 +192,7 @@ export function Dashboard() {
           <Card className="flex-1">
             <div className="flex items-center justify-between mb-4">
               <div>
-                <h3 className="font-display text-base font-semibold text-white">Monthly Budget</h3>
+                <h3 className="font-display text-base font-semibold text-slate-900 dark:text-white">Monthly Budget</h3>
                 <p className="text-xs text-slate-600 mt-0.5">
                   {currentMonthBudget > 0
                     ? `${formatINR(insights.totalExpense)} of ${formatINR(currentMonthBudget)}`
@@ -236,7 +236,7 @@ export function Dashboard() {
           {/* Investments Summary */}
           <Card className="flex-1">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="font-display text-base font-semibold text-white">Portfolio</h3>
+              <h3 className="font-display text-base font-semibold text-slate-900 dark:text-white">Portfolio</h3>
               <Badge color={invProfitLoss >= 0 ? 'emerald' : 'rose'}>
                 {invProfitLoss >= 0 ? '+' : ''}{invReturnPercent.toFixed(2)}%
               </Badge>
@@ -244,13 +244,13 @@ export function Dashboard() {
             <div className="space-y-3">
               <div className="flex items-center justify-between">
                 <span className="text-xs text-slate-600">Invested</span>
-                <span className="text-sm font-medium text-slate-300">{formatINR(totalInvested)}</span>
+                <span className="text-sm font-medium text-slate-600 dark:text-slate-300">{formatINR(totalInvested)}</span>
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-xs text-slate-600">Current Value</span>
-                <span className="text-sm font-bold text-white">{formatINR(totalCurrentValue)}</span>
+                <span className="text-sm font-bold text-slate-900 dark:text-white">{formatINR(totalCurrentValue)}</span>
               </div>
-              <div className="h-px bg-white/[0.05]" />
+              <div className="h-px bg-slate-200 dark:bg-white/[0.05]" />
               <div className="flex items-center justify-between">
                 <span className="text-xs text-slate-600">P&L</span>
                 <span className={`text-sm font-bold ${invProfitLoss >= 0 ? 'text-emerald-400' : 'text-rose-400'}`}>
@@ -272,7 +272,7 @@ export function Dashboard() {
           <Card>
             <div className="flex items-center gap-2 mb-5">
               <Target className="w-4 h-4 text-primary-400" />
-              <h3 className="font-display text-base font-semibold text-white">Active Goals</h3>
+              <h3 className="font-display text-base font-semibold text-slate-900 dark:text-white">Active Goals</h3>
               <Badge color="primary" className="ml-auto">{goals.length}</Badge>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -281,7 +281,7 @@ export function Dashboard() {
                 return (
                   <div key={goal.id} className="glass-inset p-4">
                     <div className="flex justify-between items-start mb-3">
-                      <p className="text-sm font-semibold text-slate-200 truncate">{goal.name}</p>
+                      <p className="text-sm font-semibold text-slate-700 dark:text-slate-200 truncate">{goal.name}</p>
                       <span className="text-xs font-bold text-primary-400 ml-2 flex-shrink-0">{progress.toFixed(0)}%</span>
                     </div>
                     <div className="progress-track h-1.5">

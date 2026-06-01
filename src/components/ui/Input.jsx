@@ -13,7 +13,7 @@ export function Input({ label, className, id: externalId, error, ...props }) {
       {label && (
         <label
           htmlFor={id}
-          className="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1.5"
+          className="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5"
         >
           {label}
         </label>

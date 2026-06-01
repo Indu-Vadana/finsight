@@ -106,7 +106,7 @@ export function Income() {
               <div className="p-1.5 bg-primary-500/15 rounded-lg">
                 <Plus className="w-4 h-4 text-primary-400" />
               </div>
-              <h2 className="font-display text-base font-semibold text-white">Add Income</h2>
+              <h2 className="font-display text-base font-semibold text-slate-900 dark:text-white">Add Income</h2>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -163,7 +163,7 @@ export function Income() {
               <div className="p-1.5 bg-emerald-500/15 rounded-lg">
                 <Wallet className="w-4 h-4 text-emerald-400" />
               </div>
-              <h2 className="font-display text-base font-semibold text-white">Recent Entries</h2>
+              <h2 className="font-display text-base font-semibold text-slate-900 dark:text-white">Recent Entries</h2>
               {incomes.length > 0 && (
                 <Badge color="emerald" className="ml-auto">{incomes.length} total</Badge>
               )}
@@ -179,7 +179,7 @@ export function Income() {
               <div className="overflow-x-auto -mx-2">
                 <table className="w-full text-left border-collapse min-w-[480px]">
                   <thead>
-                    <tr className="border-b border-white/[0.05]">
+                    <tr className="border-b border-slate-200 dark:border-white/[0.05]">
                       {['Date', 'Category', 'Mode', 'Amount', ''].map((h) => (
                         <th key={h} className="py-2.5 px-3 text-[11px] font-bold text-slate-600 uppercase tracking-wider">
                           {h}
@@ -196,7 +196,7 @@ export function Income() {
                           animate={{ opacity: 1, x: 0 }}
                           exit={{ opacity: 0, x: 12, height: 0 }}
                           transition={{ duration: 0.25, delay: i * 0.03 }}
-                          className="border-b border-white/[0.04] hover:bg-white/[0.02] transition-colors group"
+                          className="border-b border-slate-100 dark:border-white/[0.04] hover:bg-white/[0.02] transition-colors group"
                         >
                           <td className="py-3 px-3 text-xs text-slate-500">
                             {new Date(income.date).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: '2-digit' })}

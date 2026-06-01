@@ -121,7 +121,7 @@ export function Investments() {
               <div className="p-1.5 bg-primary-500/15 rounded-lg">
                 <Plus className="w-4 h-4 text-primary-400" />
               </div>
-              <h2 className="font-display text-base font-semibold text-white">Add Investment</h2>
+              <h2 className="font-display text-base font-semibold text-slate-900 dark:text-white">Add Investment</h2>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -180,7 +180,7 @@ export function Investments() {
               <div className="p-1.5 bg-accent-500/15 rounded-lg">
                 <TrendingUp className="w-4 h-4 text-accent-400" />
               </div>
-              <h2 className="font-display text-base font-semibold text-white">Portfolio Breakdown</h2>
+              <h2 className="font-display text-base font-semibold text-slate-900 dark:text-white">Portfolio Breakdown</h2>
               {investments.length > 0 && (
                 <Badge color="accent" className="ml-auto">{investments.length} holdings</Badge>
               )}
@@ -213,17 +213,17 @@ export function Investments() {
                           {/* Info */}
                           <div className="flex-1 min-w-0">
                             <div className="flex items-center gap-2 mb-2">
-                              <h3 className="font-semibold text-sm text-white truncate">{inv.name}</h3>
+                              <h3 className="font-semibold text-sm text-slate-900 dark:text-white truncate">{inv.name}</h3>
                               <Badge color={typeColors[inv.type] || 'slate'}>{inv.type}</Badge>
                             </div>
                             <div className="grid grid-cols-2 gap-3">
                               <div>
                                 <p className="text-[11px] text-slate-600 font-medium">Invested</p>
-                                <p className="text-sm font-semibold text-slate-300">{formatINR(inv.investedAmount)}</p>
+                                <p className="text-sm font-semibold text-slate-600 dark:text-slate-300">{formatINR(inv.investedAmount)}</p>
                               </div>
                               <div>
                                 <p className="text-[11px] text-slate-600 font-medium">Current Value</p>
-                                <p className="text-sm font-bold text-white">{formatINR(inv.currentValue)}</p>
+                                <p className="text-sm font-bold text-slate-900 dark:text-white">{formatINR(inv.currentValue)}</p>
                               </div>
                             </div>
                           </div>

@@ -117,7 +117,7 @@ export function Expenses() {
               <div className="p-1.5 bg-primary-500/15 rounded-lg">
                 <Target className="w-4 h-4 text-primary-400" />
               </div>
-              <h2 className="font-display text-base font-semibold text-white">Monthly Budget</h2>
+              <h2 className="font-display text-base font-semibold text-slate-900 dark:text-white">Monthly Budget</h2>
             </div>
             {!isSettingBudget && (
               <Button
@@ -162,8 +162,8 @@ export function Expenses() {
                 animate={{ opacity: 1 }}
               >
                 <div className="flex justify-between text-xs text-slate-500 mb-2">
-                  <span>Spent: <span className="text-slate-300 font-semibold">{formatINR(currentMonthTotal)}</span></span>
-                  <span>Budget: <span className="text-slate-300 font-semibold">{formatINR(currentBudget.amount)}</span></span>
+                  <span>Spent: <span className="text-slate-600 dark:text-slate-300 font-semibold">{formatINR(currentMonthTotal)}</span></span>
+                  <span>Budget: <span className="text-slate-600 dark:text-slate-300 font-semibold">{formatINR(currentBudget.amount)}</span></span>
                 </div>
                 <div className="progress-track h-3 mb-2 rounded-full overflow-hidden">
                   <motion.div
@@ -209,7 +209,7 @@ export function Expenses() {
               <div className="p-1.5 bg-rose-500/15 rounded-lg">
                 <Plus className="w-4 h-4 text-rose-400" />
               </div>
-              <h2 className="font-display text-base font-semibold text-white">Add Expense</h2>
+              <h2 className="font-display text-base font-semibold text-slate-900 dark:text-white">Add Expense</h2>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -264,7 +264,7 @@ export function Expenses() {
               <div className="p-1.5 bg-rose-500/15 rounded-lg">
                 <ReceiptText className="w-4 h-4 text-rose-400" />
               </div>
-              <h2 className="font-display text-base font-semibold text-white">Recent Expenses</h2>
+              <h2 className="font-display text-base font-semibold text-slate-900 dark:text-white">Recent Expenses</h2>
               {expenses.length > 0 && (
                 <Badge color="rose" className="ml-auto">{expenses.length} total</Badge>
               )}
@@ -280,7 +280,7 @@ export function Expenses() {
               <div className="overflow-x-auto -mx-2">
                 <table className="w-full text-left border-collapse min-w-[480px]">
                   <thead>
-                    <tr className="border-b border-white/[0.05]">
+                    <tr className="border-b border-slate-200 dark:border-white/[0.05]">
                       {['Date', 'Category', 'Note', 'Amount', ''].map((h) => (
                         <th key={h} className="py-2.5 px-3 text-[11px] font-bold text-slate-600 uppercase tracking-wider">{h}</th>
                       ))}
@@ -295,7 +295,7 @@ export function Expenses() {
                           animate={{ opacity: 1, x: 0 }}
                           exit={{ opacity: 0, x: 12 }}
                           transition={{ duration: 0.25, delay: i * 0.03 }}
-                          className="border-b border-white/[0.04] hover:bg-white/[0.02] transition-colors group"
+                          className="border-b border-slate-100 dark:border-white/[0.04] hover:bg-white/[0.02] transition-colors group"
                         >
                           <td className="py-3 px-3 text-xs text-slate-500">
                             {new Date(expense.date).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: '2-digit' })}

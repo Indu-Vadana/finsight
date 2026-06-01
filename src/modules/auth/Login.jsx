@@ -181,7 +181,7 @@ function FloatingWidget({ icon: Icon, label, sub, color, border, bg, position, d
     >
       <Icon className={`w-3.5 h-3.5 flex-shrink-0 ${color}`} />
       <div>
-        <p className="text-xs font-semibold text-slate-200 leading-none mb-0.5">{label}</p>
+        <p className="text-xs font-semibold text-slate-700 dark:text-slate-200 leading-none mb-0.5">{label}</p>
         {sub && <p className="text-[10px] text-slate-500 leading-none">{sub}</p>}
       </div>
     </motion.div>
@@ -302,7 +302,7 @@ export function Login() {
         transition={{ duration: 0.55, ease: [0.23, 1, 0.32, 1] }}
       >
         <div className="gradient-border p-px">
-          <div className="bg-dark-800/90 backdrop-blur-2xl rounded-[calc(1rem-1px)] p-8">
+          <div className="bg-white/90 dark:bg-dark-800/90 backdrop-blur-2xl rounded-[calc(1rem-1px)] p-8">
 
             {/* Logo block */}
             <motion.div

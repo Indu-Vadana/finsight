@@ -83,7 +83,7 @@ export function Goals() {
               </div>
               <div>
                 <p className="text-xs text-slate-600 font-medium">Active</p>
-                <p className="text-lg font-bold font-display text-white">{goals.length - completedGoals}</p>
+                <p className="text-lg font-bold font-display text-slate-900 dark:text-white">{goals.length - completedGoals}</p>
               </div>
             </div>
           </motion.div>
@@ -105,7 +105,7 @@ export function Goals() {
               </div>
               <div>
                 <p className="text-xs text-slate-600 font-medium">Total Saved</p>
-                <p className="text-lg font-bold font-display text-white">
+                <p className="text-lg font-bold font-display text-slate-900 dark:text-white">
                   {formatINR(goals.reduce((s, g) => s + Number(g.savedAmount), 0))}
                 </p>
               </div>
@@ -127,7 +127,7 @@ export function Goals() {
               <div className="p-1.5 bg-primary-500/15 rounded-lg">
                 <Plus className="w-4 h-4 text-primary-400" />
               </div>
-              <h2 className="font-display text-base font-semibold text-white">New Goal</h2>
+              <h2 className="font-display text-base font-semibold text-slate-900 dark:text-white">New Goal</h2>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -203,7 +203,7 @@ export function Goals() {
                           <div className="flex-1 min-w-0">
                             <div className="flex items-center gap-2 mb-1">
                               {isCompleted && <Trophy className="w-3.5 h-3.5 text-emerald-400 flex-shrink-0" />}
-                              <h3 className="text-sm font-bold text-white truncate">{goal.name}</h3>
+                              <h3 className="text-sm font-bold text-slate-900 dark:text-white truncate">{goal.name}</h3>
                             </div>
                             <p className="text-xs text-slate-600">{formatINR(goal.targetAmount)} target</p>
                           </div>
