@@ -19,14 +19,14 @@ export function EmptyState({ icon: Icon, title, description, action, className }
       {Icon && (
         <div className="relative mb-5">
           <div className="absolute inset-0 rounded-full bg-primary-500/10 blur-xl scale-150" />
-          <div className="relative p-5 rounded-2xl bg-dark-700/60 border border-white/[0.06]">
-            <Icon className="w-10 h-10 text-slate-600" />
+          <div className="relative p-5 rounded-2xl bg-slate-100 dark:bg-dark-700/60 border border-slate-200 dark:border-white/[0.06]">
+            <Icon className="w-10 h-10 text-slate-400 dark:text-slate-600" />
           </div>
         </div>
       )}
-      <h3 className="text-base font-semibold text-slate-400 mb-1.5">{title}</h3>
+      <h3 className="text-base font-semibold text-slate-600 dark:text-slate-400 mb-1.5">{title}</h3>
       {description && (
-        <p className="text-sm text-slate-600 max-w-xs mb-5">{description}</p>
+        <p className="text-sm text-slate-500 dark:text-slate-600 max-w-xs mb-5">{description}</p>
       )}
       {action && action}
     </motion.div>

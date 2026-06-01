@@ -13,7 +13,7 @@ export function StatCard({
   trend,          // { value: number, label: string }
   iconColor = 'text-primary-400',
   iconBg = 'bg-primary-500/10',
-  valueColor = 'text-white',
+  valueColor = 'text-slate-900 dark:text-white',
   className,
   delay = 0,
 }) {
