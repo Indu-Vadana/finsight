@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useId } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { clsx } from 'clsx';
