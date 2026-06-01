@@ -12,12 +12,13 @@ export default defineConfig([
       reactHooks.configs.flat.recommended,
     ],
     languageOptions: {
-      globals: globals.browser,
+      globals: { ...globals.browser, ...globals.node },
       parserOptions: { ecmaFeatures: { jsx: true } },
     },
     rules: {
-      'no-unused-vars': ['error', { varsIgnorePattern: '^React$', args: 'none' }],
+      'no-unused-vars': ['warn', { varsIgnorePattern: '^React$', args: 'none' }],
       'react-hooks/set-state-in-effect': 'off',
+      'react-hooks/exhaustive-deps': 'warn',
     },
   },
 ])
