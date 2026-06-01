@@ -1,37 +1,36 @@
+'use client'
 import React from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { LayoutDashboard, Wallet, ReceiptText, Target, TrendingUp, Calculator, LogOut, Sparkles } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const navItems = [
-  { path: '/',            icon: LayoutDashboard, label: 'Dashboard' },
-  { path: '/income',     icon: Wallet,           label: 'Income' },
-  { path: '/expenses',   icon: ReceiptText,      label: 'Expenses' },
-  { path: '/goals',      icon: Target,           label: 'Goals' },
-  { path: '/investments',icon: TrendingUp,       label: 'Investments' },
-  { path: '/planner',    icon: Calculator,       label: 'Planner' },
+  { path: '/',             icon: LayoutDashboard, label: 'Dashboard' },
+  { path: '/income',      icon: Wallet,           label: 'Income' },
+  { path: '/expenses',    icon: ReceiptText,      label: 'Expenses' },
+  { path: '/goals',       icon: Target,           label: 'Goals' },
+  { path: '/investments', icon: TrendingUp,       label: 'Investments' },
+  { path: '/planner',     icon: Calculator,       label: 'Planner' },
 ];
 
 export function Sidebar() {
   const { logout, currentUser } = useAuth();
-  const location = useLocation();
+  const pathname = usePathname();
 
   return (
     <aside className="hidden md:flex flex-col w-64 h-screen fixed left-0 top-0 bg-dark-800/70 backdrop-blur-xl border-r border-white/[0.06] z-40">
       {/* Logo */}
       <div className="p-6 pb-4">
         <motion.div
-          initial={{ opacity: 0, x: -20 }}
+          initial={{ opacity: 0, x: -16 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
+          transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
           className="flex items-center gap-2.5"
         >
-          <div className="relative">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary-500 to-violet-500 flex items-center justify-center shadow-glow-sm">
-              <Sparkles className="w-4 h-4 text-white" />
-            </div>
-            <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-primary-500 to-violet-500 blur-md opacity-40 -z-10" />
+          <div className="p-1.5 bg-primary-500/20 rounded-xl">
+            <Sparkles className="w-5 h-5 text-primary-400" />
           </div>
           <h1 className="font-display text-xl font-bold gradient-text-primary tracking-tight">
             FinSight
@@ -48,15 +47,14 @@ export function Sidebar() {
       <nav className="flex-1 px-3 space-y-1 overflow-y-auto">
         {navItems.map((item, i) => {
           const isActive = item.path === '/'
-            ? location.pathname === '/'
-            : location.pathname.startsWith(item.path);
+            ? pathname === '/'
+            : pathname.startsWith(item.path);
 
           return (
-            <NavLink
+            <Link
               key={item.path}
-              to={item.path}
-              className="relative block"
-              end={item.path === '/'}
+              href={item.path}
+              className="group relative block"
             >
               <motion.div
                 initial={{ opacity: 0, x: -16 }}
@@ -69,7 +67,7 @@ export function Sidebar() {
                   {isActive && (
                     <motion.div
                       layoutId="nav-active-pill"
-                      className="absolute inset-0 bg-gradient-to-r from-primary-500/15 to-violet-500/10 border border-primary-500/20 rounded-xl"
+                      className="absolute inset-0 bg-gradient-to-r from-primary-500/20 to-violet-500/10 rounded-xl border border-primary-500/20"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
@@ -94,7 +92,7 @@ export function Sidebar() {
                   )}
                 </div>
               </motion.div>
-            </NavLink>
+            </Link>
           );
         })}
       </nav>

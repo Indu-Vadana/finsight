@@ -1,5 +1,7 @@
+'use client'
 import React from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { LayoutDashboard, Wallet, ReceiptText, Target, TrendingUp, Calculator } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -13,21 +15,20 @@ const navItems = [
 ];
 
 export function MobileNav() {
-  const location = useLocation();
+  const pathname = usePathname();
 
   return (
     <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-dark-800/80 backdrop-blur-xl border-t border-white/[0.06] z-50 pb-safe">
       <div className="flex justify-around items-center px-2 py-1">
         {navItems.map((item) => {
           const isActive = item.path === '/'
-            ? location.pathname === '/'
-            : location.pathname.startsWith(item.path);
+            ? pathname === '/'
+            : pathname.startsWith(item.path);
 
           return (
-            <NavLink
+            <Link
               key={item.path}
-              to={item.path}
-              end={item.path === '/'}
+              href={item.path}
               className="relative flex flex-col items-center gap-0.5 px-3 py-2 min-w-[52px]"
             >
               <AnimatePresence>
@@ -50,7 +51,7 @@ export function MobileNav() {
               >
                 {item.label}
               </span>
-            </NavLink>
+            </Link>
           );
         })}
       </div>
