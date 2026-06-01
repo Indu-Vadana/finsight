@@ -18,7 +18,7 @@ export function MobileNav() {
   const pathname = usePathname();
 
   return (
-    <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-dark-800/80 backdrop-blur-xl border-t border-white/[0.06] z-50 pb-safe">
+    <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-white/90 dark:bg-dark-800/80 backdrop-blur-xl border-t border-slate-200 dark:border-white/[0.06] z-50 pb-safe">
       <div className="flex justify-around items-center px-2 py-1">
         {navItems.map((item) => {
           const isActive = item.path === '/'
