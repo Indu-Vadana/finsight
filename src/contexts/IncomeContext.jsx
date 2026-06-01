@@ -10,15 +10,6 @@ export function IncomeProvider({ children }) {
   const [loading, setLoading] = useState(true);
   const { currentUser } = useAuth();
 
-  useEffect(() => {
-    if (currentUser) {
-      fetchIncomes();
-    } else {
-      setIncomes([]);
-      setLoading(false);
-    }
-  }, [currentUser]);
-
   const fetchIncomes = async () => {
     setLoading(true);
     try {
@@ -30,6 +21,15 @@ export function IncomeProvider({ children }) {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    if (currentUser) {
+      fetchIncomes();
+    } else {
+      setIncomes([]);
+      setLoading(false);
+    }
+  }, [currentUser]);
 
   const addIncome = async (data) => {
     await incomeService.add(currentUser.uid, data);

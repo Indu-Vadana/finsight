@@ -10,15 +10,6 @@ export function ExpenseProvider({ children }) {
   const [loading, setLoading] = useState(true);
   const { currentUser } = useAuth();
 
-  useEffect(() => {
-    if (currentUser) {
-      fetchExpenses();
-    } else {
-      setExpenses([]);
-      setLoading(false);
-    }
-  }, [currentUser]);
-
   const fetchExpenses = async () => {
     setLoading(true);
     try {
@@ -30,6 +21,15 @@ export function ExpenseProvider({ children }) {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    if (currentUser) {
+      fetchExpenses();
+    } else {
+      setExpenses([]);
+      setLoading(false);
+    }
+  }, [currentUser]);
 
   const addExpense = async (data) => {
     await expenseService.add(currentUser.uid, data);

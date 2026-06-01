@@ -10,15 +10,6 @@ export function InvestmentProvider({ children }) {
   const [loading, setLoading] = useState(true);
   const { currentUser } = useAuth();
 
-  useEffect(() => {
-    if (currentUser) {
-      fetchInvestments();
-    } else {
-      setInvestments([]);
-      setLoading(false);
-    }
-  }, [currentUser]);
-
   const fetchInvestments = async () => {
     setLoading(true);
     try {
@@ -30,6 +21,15 @@ export function InvestmentProvider({ children }) {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    if (currentUser) {
+      fetchInvestments();
+    } else {
+      setInvestments([]);
+      setLoading(false);
+    }
+  }, [currentUser]);
 
   const addInvestment = async (data) => {
     await investmentService.add(currentUser.uid, data);

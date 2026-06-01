@@ -10,15 +10,6 @@ export function GoalProvider({ children }) {
   const [loading, setLoading] = useState(true);
   const { currentUser } = useAuth();
 
-  useEffect(() => {
-    if (currentUser) {
-      fetchGoals();
-    } else {
-      setGoals([]);
-      setLoading(false);
-    }
-  }, [currentUser]);
-
   const fetchGoals = async () => {
     setLoading(true);
     try {
@@ -30,6 +21,15 @@ export function GoalProvider({ children }) {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    if (currentUser) {
+      fetchGoals();
+    } else {
+      setGoals([]);
+      setLoading(false);
+    }
+  }, [currentUser]);
 
   const addGoal = async (data) => {
     await goalService.add(currentUser.uid, data);
